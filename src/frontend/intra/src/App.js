@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+const App = () => {
+  const [addOne, setAddOne] = useState("");
+  const [addTwo, setAddTwo] = useState("");
+  const [addResult, setAddResult] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <h1>Examen Intra</h1>
+        <h2>Calculatrice web</h2>
+      </div>
+      <form>
+        <div>
+          <label htmlFor="addOne">One</label>
+          <input
+            type="number"
+            id={"addOne"}
+            placeholder={"One"}
+            value={addOne}
+            onChange={({ target }) => setAddOne(target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="addTwo">Two</label>
+          <input
+            type="number"
+            id={"addTwo"}
+            placeholder={"Two"}
+            value={addTwo}
+            onChange={({ target }) => setAddTwo(target.value)}
+          />
+        </div>
+        <button>Additionne</button>
+      </form>
+      <h1>{addResult}</h1>
     </div>
   );
-}
+};
 
 export default App;
