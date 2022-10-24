@@ -9,7 +9,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTwoNumber(addOne, addTwo)
-      .then((response) => console.log(response))
+      .then(({ data }) => setAddResult(data.result))
       .catch((err) => console.log(err));
   };
 
