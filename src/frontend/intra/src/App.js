@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+import { addTwoNumber } from "./services/ArithmeticService";
 
 const App = () => {
   const [addOne, setAddOne] = useState("");
   const [addTwo, setAddTwo] = useState("");
   const [addResult, setAddResult] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTwoNumber(addOne, addTwo)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -11,7 +19,7 @@ const App = () => {
         <h1>Examen Intra</h1>
         <h2>Calculatrice web</h2>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="addOne">One</label>
           <input
